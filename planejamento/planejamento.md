@@ -43,12 +43,12 @@ O site será pensado e estruturado primeiro para celulares e depois adaptado par
 
 * **Cores principais:** A paleta de cores oficial do projeto utiliza tons de roxo, lilás e bege, equilibrando a sofisticação da marca com o conforto visual.
   
-  ![Paleta de Cores da Umbra Café](../imagens/paleta.png)
+  ![Paleta de Cores](../imagens/paleta.png)
 
 * **Fontes:** Textos e Títulos utilizando uma fonte clássica (*Times New Roman*).
 * **Logo:** A identidade visual gráfica já foi desenvolvida e será aplicada diretamente no topo do site e nos materiais de divulgação.
   
-  ![Logo Oficial da Umbra Café](../logo/logo.png)
+  ![Logo](../logo/umbra..png)
 
 * **Nome da empresa/site:** Umbra Café
 * **Dados fictícios da empresa:**
