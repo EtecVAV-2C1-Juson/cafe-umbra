@@ -54,7 +54,7 @@ O site será pensado e estruturado primeiro para celulares e depois adaptado par
 * **Dados fictícios da empresa:**
   * **Telefone:** (11) 98765-4321
   * **E-mail:** ola.umbracafe@gmail.com
-  * **Endereço:** Rua das Sombras, 120 - Vila Madalena, São Paulo - SP
+  * **Endereço:** Rua Tabapuã, 932 - Itaim Bibi, São Paulo - SP
   * **Redes sociais:** Instagram: @cafeumbra_
 
 ---
