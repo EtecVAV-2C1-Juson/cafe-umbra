@@ -1,5 +1,5 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 ?>
@@ -12,13 +12,18 @@ if (session_status() == PHP_SESSION_NONE) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Umbra Café</title>
+    <?php if(isset($tituloPagina)): ?>
+        <title><?= $tituloPagina; ?> | Umbra Café</title>
+    <?php else: ?>
+        <title>Umbra Café</title>
+    <?php endif; ?>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="icon" type="image/png" href="assets/imgs/logo/icone.png">
 
-    <link rel="stylesheet" href="assets/css/estilo.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <script src="assets/js/header.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
@@ -30,67 +35,108 @@ if (session_status() == PHP_SESSION_NONE) {
 
         <!-- Logo -->
         <a href="index.php" class="header-logo">
-            <img src="assets/imgs/umbra.png" alt="Logo da Umbra Café">
+
+            <img
+                src="assets/imgs/logo/umbra.png"
+                alt="Umbra Café">
+
         </a>
 
         <!-- Menu Mobile -->
-        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
-
-        <label for="menu-toggle" class="menu-btn">
-            <i class="fa-solid fa-bars"></i>
-        </label>
+        <button
+            type="button"
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Abrir menu">
+            <i
+                class="fa-solid fa-bars"
+                id="iconeMenu">
+            </i></button>
 
         <!-- Navegação -->
-        <nav class="nav-menu">
 
-            <a href="index.php">Início</a>
+        <nav
+            class="nav-menu"
+            id="navMenu">
 
-            <a href="cardapio.php">Cardápio</a>
+            <div class="nav-links">
 
-            <a href="pedido.php">Pedido</a>
+                <a href="index.php">Início</a>
 
-            <a href="sobre.php">Sobre nós</a>
+                <a href="cardapio.php">Cardápio</a>
 
-            <?php if(isset($_SESSION["id_cliente"])): ?>
+                <a href="pedido.php">Pedido</a>
 
-                <!-- Usuário logado -->
-                <div class="usuario-menu">
+                <a href="sobre.php">Sobre nós</a>
 
-                    <button class="usuario-btn" id="usuarioBtn">
+            </div>
 
-                        <span>
-                            Olá,
-                            <?= htmlspecialchars($_SESSION["nome_cliente"]); ?>
-                        </span>
+            <div class="nav-usuario">
 
-                        <i class="fa-solid fa-chevron-down seta-dropdown"></i>
+                <?php if(isset($_SESSION["id_cliente"])): ?>
 
-                    </button>
+                    <div class="usuario-menu">
 
-                    <div class="usuario-dropdown" id="usuarioDropdown" aria-hidden="true">
+                        <button
+                            type="button"
+                            class="usuario-btn"
+                            id="usuarioBtn">
 
-                        <a href="meus pedidos.php">
-                            <i class="fa-solid fa-receipt"></i>
-                            Meus pedidos
-                        </a>
+                            <i class="fa-solid fa-circle-user"></i>
 
-                        <a href="logout.php">
-                            <i class="fa-solid fa-right-from-bracket"></i>
-                            Sair
-                        </a>
+                            <span>
+
+                                Olá,
+                                <?= htmlspecialchars($_SESSION["nome_cliente"]); ?>
+
+                            </span>
+
+                            <i
+                                class="fa-solid fa-chevron-down seta-dropdown"
+                                id="setaDropdown">
+                            </i>
+
+                        </button>
+
+                        <div
+                            class="usuario-dropdown"
+                            id="usuarioDropdown">
+
+                            <a href="meus_pedidos.php">
+
+                                <i class="fa-solid fa-receipt"></i>
+
+                                Meus pedidos
+
+                            </a>
+
+                            <a href="logout.php">
+
+                                <i class="fa-solid fa-right-from-bracket"></i>
+
+                                Sair
+
+                            </a>
+
+                        </div>
 
                     </div>
 
-                </div>
+                <?php else: ?>
 
-            <?php else: ?>
+                    <a
+                        href="login.php"
+                        class="btn-login">
 
-                <!-- Não logado -->
-                <a href="login.php" class="btn-login">
-                    Entrar
-                </a>
+                        <i class="fa-solid fa-user"></i>
 
-            <?php endif; ?>
+                        Entrar
+
+                    </a>
+
+                <?php endif; ?>
+
+            </div>
 
         </nav>
 

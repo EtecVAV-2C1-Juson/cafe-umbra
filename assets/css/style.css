@@ -1,518 +1,946 @@
-/* ==========================================================================
-   HEADER - MOBILE FIRST
-   ========================================================================== */
-
-.header-principal{
-    width:100%;
-    background:#D6AADD;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Pra não ficar o efeito azul */
 }
 
-.header-container{
-    max-width:1200px;
-    margin:0 auto;
-    padding:15px 20px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    position:relative;
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
 }
 
-.header-logo img{
-    height:60px;
-    display:block;
+body {
+    background: #FFFAF7;
 }
 
-/* ==========================================================================
-   MENU MOBILE
-   ========================================================================== */
+/* Header - Mobile First */
 
-.menu-checkbox{
-    display:none;
+.header-principal {
+    width: 100%;
+    background: #C7ADE2;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
 }
 
-.menu-btn{
-    font-size:2rem;
-    color:#855C75;
-    cursor:pointer;
-    transition:.3s;
+.header-container {
+    width: 100%;
+    padding: 15px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
 }
 
-.menu-btn:hover{
-    color:#996CA0;
+/* Logo */
+.header-logo {
+    flex-shrink: 0;
 }
 
-.nav-menu{
+.header-logo img {
+    height: 45px; 
+    display: block;
+    transition: height 0.3s ease;
+}
 
-    position:absolute;
-    top:100%;
-    left:0;
+/* Menu Mobile Hambúrguer */
+.menu-btn {
+    font-size: 2rem;
+    color: #855C75;
+    cursor: pointer;
+    display: block;
+    transition: .3s;
+    background: none;
+    border: none;
+    padding: 0;
+    outline: none;
+}
 
-    width:100%;
+.menu-btn:hover {
+    color: #996CA0;
+}
 
-    background:#D6AADD;
+/* Menu Dropdown */
+.nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #C7ADE2;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .35s ease;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, .08);
+}
 
-    display:flex;
-    flex-direction:column;
-    align-items:stretch;
+.nav-menu.aberto {
+    max-height: 700px;
+}
 
-    overflow:hidden;
-    max-height:0;
+.nav-links {
+    display: flex;
+    flex-direction: column;
+}
 
-    transition:max-height .35s ease;
+.nav-links a {
+    padding: 16px 35px;
+    text-decoration: none;
+    color: #855C75;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: .3s;
+    text-align: right; 
+}
 
-    box-shadow:0 5px 10px rgba(0,0,0,.08);
+.nav-links a:hover {
+    background: #F1EBE7;
+    color: #996CA0;
+}
+
+/* Login (Mobile) */
+.nav-usuario {
+    border-top: 1px solid rgba(133, 92, 117, .2);
+}
+
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    gap: 10px;
+    padding: 16px 35px;
+    text-decoration: none;
+    color: #855C75;
+    font-weight: 600;
+}
+
+.btn-login:active {
+    background: #CDAB78;
+    color: white;
+}
+
+.btn-login:hover {
+    background: #CDAB78; 
+    color: white;
+}
+
+/* Menu Usuário Logado (Mobile) */
+.usuario-menu {
+    position: relative;
+}
+
+.usuario-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #855C75;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.usuario-btn span {
+    order: 1;
+}
+.usuario-btn i:first-child {
+    order: 2;
+}
+.usuario-btn .seta-dropdown {
+    order: 0;
+    margin-right: auto; /* Joga a seta para a esquerda, mantendo o nome na direita */
+}
+
+.usuario-btn:hover {
+    background: #F1EBE7;
+}
+
+.seta-dropdown {
+    transition: .3s;
+}
+
+.seta-dropdown.girar {
+    transform: rotate(180deg);
+}
+
+.usuario-dropdown {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    background: #F1EBE7;
+    transition: max-height .3s ease;
+}
+
+.usuario-dropdown.ativo {
+    max-height: 180px;
+}
+
+.usuario-dropdown a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; 
+    gap: 10px;
+    padding: 14px 35px;
+    text-decoration: none;
+    color: #855C75;
+    transition: .3s;
+}
+
+.usuario-dropdown a:hover {
+    background: white;
+}
+/* Computador */
+
+@media(min-width:768px) {
+
+    .header-container {
+
+        display: grid;
+
+        grid-template-columns: auto 1fr auto;
+
+        align-items: center;
+
+        gap: 40px;
+
+    }
+
+    .menu-btn {
+
+        display: none;
+
+    }
+
+    .nav-menu {
+
+        position: static;
+
+        width: 100%;
+
+        max-height: none;
+
+        overflow: visible;
+
+        background: none;
+
+        box-shadow: none;
+
+        display: flex;
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+    }
+
+    .nav-links {
+
+        display: flex;
+
+        flex-direction: row;
+
+        justify-content: center;
+
+        gap: 40px;
+
+        flex: 1;
+
+    }
+
+    .nav-links a {
+
+        padding: 0;
+
+        position: relative;
+
+    }
+
+    .nav-links a::after {
+
+        content: "";
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: -6px;
+
+        width: 0;
+
+        height: 2px;
+
+        background: #CDAB78;
+
+        transition: .3s;
+
+    }
+
+    .nav-links a:hover {
+
+        background: none;
+
+    }
+
+    .nav-links a:hover::after {
+
+        width: 100%;
+
+    }
+
+    .nav-usuario {
+
+        border: none;
+
+        margin-left: 30px;
+
+    }
+
+    /* Login */
+
+    .btn-login {
+
+        background: #855C75;
+
+        color: white;
+
+        padding: 10px 22px;
+
+        border-radius: 25px;
+
+    }
+
+    .btn-login:hover {
+
+        background: #CDAB78;
+        color: white;
+
+    }
+
+    /* Usuário */
+
+    .usuario-btn {
+
+        width: auto;
+
+        padding: 10px 18px;
+
+        border-radius: 25px;
+
+        gap: 12px;
+
+    }
+
+    .usuario-btn:hover {
+
+        background: rgba(255, 255, 255, .35);
+
+    }
+
+    .usuario-dropdown {
+
+        position: absolute;
+
+        top: 115%;
+
+        right: 0;
+
+        min-width: 220px;
+
+        border-radius: 15px;
+
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .12);
+
+    }
+
+    .header-logo img {
+
+        height: 82px;
+
+    }
 
 }
 
-.menu-checkbox:checked ~ .nav-menu{
-
-    max-height:600px;
-
-}
-
-.nav-menu>a{
-
-    text-decoration:none;
-
-    color:#855C75;
-
-    font-size:1.2rem;
-
-    font-weight:600;
-
-    padding:16px 25px;
-
-    transition:.3s;
-
-}
-
-.nav-menu>a:hover{
-
-    background:#F1EBE7;
-
-    color:#996CA0;
-
-}
-
-/* ==========================================================================
-   BOTÃO LOGIN
-   ========================================================================== */
-
-.btn-login{
-
-    display:flex;
-    align-items:center;
-    gap:8px;
-
-}
-
-/* ==========================================================================
-   MENU DO USUÁRIO
-   ========================================================================== */
-
-.usuario-menu{
-
-    position:relative;
-
-}
-
-.usuario-btn{
-
-    width:100%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    gap:10px;
-
-    padding:16px 25px;
-
-    background:none;
-
-    border:none;
-
-    cursor:pointer;
-
-    color:#855C75;
-
-    font-size:1.1rem;
-
-    font-weight:600;
-
-}
-
-.usuario-btn:hover{
-
-    background:#F1EBE7;
-
-}
-
-.seta-dropdown{
-
-    transition:.3s;
-
-}
-
-.seta-dropdown.girar{
-
-    transform:rotate(180deg);
-
-}
-
-.usuario-dropdown{
-
-    display:none;
-
-    flex-direction:column;
-
-    background:#F1EBE7;
-
-}
-
-.usuario-dropdown.ativo{
-
-    display:flex;
-
-}
-
-.usuario-dropdown a{
-
-    text-decoration:none;
-
-    color:#855C75;
-
-    padding:14px 25px;
-
-    display:flex;
-    align-items:center;
-    gap:10px;
-
-    transition:.3s;
-
-}
-
-.usuario-dropdown a:hover{
-
-    background:#ffffff;
-
-}
-
-/* ==========================================================================
-   DESKTOP
-   ========================================================================== */
-
-@media(min-width:768px){
-
-.menu-btn{
-
-    display:none;
-
-}
-
-.nav-menu{
-
-    position:static;
-
-    max-height:none;
-
-    overflow:visible;
-
-    box-shadow:none;
-
-    background:none;
-
-    width:auto;
-
-    flex-direction:row;
-
-    align-items:center;
-
-    gap:35px;
-
-}
-
-.nav-menu>a{
-
-    padding:0;
-
-    position:relative;
-
-}
-
-.nav-menu>a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-6px;
-
-    width:0;
-
-    height:2px;
-
-    background:#CDAB78;
-
-    transition:.3s;
-
-}
-
-.nav-menu>a:hover{
-
-    background:none;
-
-}
-
-.nav-menu>a:hover::after{
-
-    width:100%;
-
-}
-
-/* LOGIN */
-
-.btn-login{
-
-    background:#996CA0;
-
-    color:#fff !important;
-
-    padding:10px 18px !important;
-
-    border-radius:25px;
-
-}
-
-.btn-login:hover{
-
-    background:#855C75 !important;
-
-}
-
-/* MENU USUÁRIO */
-
-.usuario-menu{
-
-    margin-left:15px;
-
-}
-
-.usuario-btn{
-
-    padding:10px 18px;
-
-    border-radius:25px;
-
-}
-
-.usuario-btn:hover{
-
-    background:rgba(255,255,255,.4);
-
-}
-
-.usuario-dropdown{
-
-    position:absolute;
-
-    top:115%;
-
-    right:0;
-
-    min-width:210px;
-
-    border-radius:15px;
-
-    box-shadow:0 10px 20px rgba(0,0,0,.12);
-
-    overflow:hidden;
-
-    z-index:9999;
-
-}
-
-.usuario-dropdown a{
-
-    padding:14px 18px;
-
-}
-
-.header-logo img{
-
-    height:75px;
-
-}
-
-}/* ==========================================================================
-   FOOTER - MOBILE FIRST
-   ========================================================================== */
+/* Footer */
 
 .footer-principal {
-    width: 100%;
-    background-color: #D6AADD;
+    background-color: #C7ADE2; 
     color: #855C75;
-    padding: 50px 20px 25px;
-    text-align: center;
+    padding: 40px 20px 20px 20px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Blocos */
+.footer-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 30px;
+}
 
-.footer-logo,
-.footer-contato,
-.footer-endereco {
-    margin-bottom: 35px;
+.footer-col {
+    width: 100%;
 }
 
 .footer-logo img {
-    width: 150px;
-    max-width: 100%;
-    height: auto;
+    max-height: 45px;
+    width: auto;
 }
 
 .footer-titulo {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    color: #855C75;
+    margin: 0 0 5px 0;
 }
 
-.footer-subtitulo {
-    margin-bottom: 18px;
-    font-size: 1rem;
+.footer-subtitulo, 
+.footer-endereco-texto {
+    font-size: 0.95rem;
+    margin: 0 0 12px 0;
+    color: #855C75;
+    opacity: 0.9;
 }
-
-/* Redes sociais */
 
 .redes-sociais {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 12px;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .rede-item {
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
-
-    padding: 10px 18px;
-    border-radius: 30px;
-
-    width: fit-content;
-
-    transition: .3s;
+    gap: 8px;
 }
 
 .rede-item i {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: #855C75;
 }
 
 .rede-texto {
     color: #855C75;
     text-decoration: none;
-    font-weight: bold;
-    transition: .3s;
+    font-size: 0.95rem;
+    transition: opacity 0.2s ease;
 }
 
 .rede-texto:hover {
-    color: #996CA0;
-}
-
-/* Endereço */
-
-.footer-endereco-texto {
-    font-size: 1rem;
-}
-
-/* Créditos */
-
-.footer-linha {
-    border: none;
-    height: 1px;
-    background-color: #996CA0;
-    opacity: .3;
-    margin: 30px 0 20px;
+    opacity: 0.7;
+    text-decoration: underline;
 }
 
 .footer-creditos {
-    font-size: .9rem;
     text-align: center;
-    line-height: 1.6;
+    margin-top: 30px;
 }
 
-.nomes-grupo {
-    margin-top: 8px;
+.footer-linha {
+    border: 0;
+    border-top: 1px solid rgba(133, 92, 117, 0.3);
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+
+.footer-copy,
+.footer-grupo {
+    font-size: 0.85rem;
+    margin: 0;
+    color: #855C75;
+    opacity: 0.9;
+}
+
+.footer-grupo {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+/* Computador */
+@media (min-width: 768px) {
+    .footer-conteudo {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; 
+        text-align: left;
+        gap: 0;
+    }
+
+    .footer-col {
+        width: auto;
+    }
+
+    .footer-logo {
+        flex: 1;
+    }
+
+    .footer-contato {
+        flex: 2;
+        padding-left: 40px;
+    }
+
+    .footer-endereco {
+        flex: 1;
+        text-align: right; 
+    }
+
+    .redes-sociais {
+        align-items: flex-start; 
+    }
+}
+
+/* ==========================================================================
+   PÁGINA HOME (INDEX) - MOBILE FIRST (TEXTO À ESQUERDA E BANNER MENOR)
+   ========================================================================== */
+
+.hero-banner {
+    width: 100%;
+    min-height: 40vh; /* CORREÇÃO: Altura menor no mobile para a imagem não cobrir a tela toda */
+    
+    /* Mantém o truque de escurecer a imagem automaticamente no código */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                      url('../imgs/ambiente/acafe_ambiente2.png'); 
+                      
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinha o bloco de conteúdo à esquerda do banner */
+    padding: 20px 35px; /* Alinhado com o recuo padrão do seu header */
+    box-sizing: border-box;
+}
+
+.hero-conteudo {
+    width: 100%;
+    max-width: 450px;
+    text-align: left; /* CORREÇÃO: Todo o texto alinhado à esquerda conforme o mockup */
+    color: #FFFAF7;
+    font-family: Arial, sans-serif;
+}
+
+/* Ajuste da logo escrita no mobile */
+.hero-logo-escrita {
+    max-width: 140px; /* Reduzido sutilmente para casar com a nova altura menor */
+    height: auto;
+    display: block;
+    margin: 0 0 12px 0; /* Remove o auto das laterais para fixar à esquerda */
+}
+
+.hero-conteudo p {
+    font-size: 0.95rem; 
+    line-height: 1.4;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+/* Botões do Banner - Lado a Lado no Mobile */
+.hero-botoes {
+    display: flex;
+    flex-direction: row; /* CORREÇÃO: Alinha os botões lado a lado no celular */
+    gap: 10px;
+    width: 100%;
+    max-width: 290px; /* Largura ajustada para caber os dois botões na mesma linha */
+}
+
+/* CORREÇÃO DO ALINHAMENTO DO TEXTO DOS BOTÕES */
+.btn-home-principal,
+.btn-home-secundario {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    white-space: nowrap;
+    
+    /* Garante que o alinhamento vertical do texto use a mesma base nos dois */
+    box-sizing: border-box; 
+}
+
+/* Botão Cardápio Principal */
+.btn-home-principal {
+    background: #F1EBE7;
+    color: #855C75;
+    border: 2px solid #F1EBE7; /* CORREÇÃO: Borda da mesma cor do fundo para equilibrar a altura */
+}
+
+/* Botão Fazer Pedido Secundário */
+.btn-home-secundario {
+    background: transparent;
+    color: #FFFAF7;
+    border: 2px solid #FFFAF7; /* Mantém a borda branca que você já tinha */
+}
+
+/* ==========================================================================
+   VERSÃO DESKTOP (COMPUTADOR)
+   ========================================================================== */
+@media (min-width: 768px) {
+    .hero-banner {
+        min-height: 60vh; /* No computador ela pode ser um pouco maior */
+        padding-left: 10%; /* Afasta um pouco o texto da borda extrema no PC */
+    }
+
+    .hero-logo-escrita {
+        max-width: 220px;
+        margin-bottom: 18px;
+    }
+
+    .hero-conteudo p {
+        font-size: 1.2rem;
+        line-height: 1.5;
+    }
+
+    .hero-botoes {
+        flex-direction: row; /* Botões lado a lado no PC */
+        max-width: none;
+        gap: 15px;
+    }
+
+    .btn-home-principal,
+    .btn-home-secundario {
+        width: 150px;
+        font-size: 0.95rem;
+    }
+
+    /* CORREÇÃO: Efeito Hover com o douradinho oficial no Computador */
+    .btn-home-principal:hover {
+        background: #CDAB78;
+        color: white;
+    }
+
+    .btn-home-secundario:hover {
+        background: #CDAB78;
+        border-color: #CDAB78;
+        color: white;
+    }
+}
+
+/* ==========================================================================
+   SEÇÃO O QUE OFERECEMOS (CORRIGIDA)
+   ========================================================================== */
+
+.oferecemos-secao {
+    background: #FFFAF7;
+    padding: 30px 15px;
+    font-family: Arial, sans-serif;
+}
+
+.oferecemos-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.oferecemos-sub {
+    display: block;
+    color: #855C75;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    text-align: center;
+}
+
+.oferecemos-titulo {
+    color: #855C75;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Força os 2 blocos ficarem lado a lado sem estourar a tela */
+.oferecemos-linha {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.categoria-card {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* CORREÇÃO DA IMAGEM ENORME: Limitamos a altura e largura máxima no mobile */
+.categoria-card img {
+    width: 100%;
+    max-height: 120px; /* Impede que a foto fique gigante no celular */
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* CORREÇÃO DO TEXTO MINÚSCULO: Aumentando os tamanhos para leitura no celular */
+.categoria-info h3 {
+    color: #855C75;
+    font-size: 1.1rem; /* Texto maior e mais visível */
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.categoria-info p {
+    color: #855C75;
+    font-size: 0.9rem; /* Texto maior e mais legível */
+    line-height: 1.3;
+    opacity: 0.85;
+}
+
+/* Botão do cardápio completo */
+.oferecemos-botoes {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.btn-cardapio-completo {
+    display: inline-block;
+    background: #855C75;
+    color: #F1EBE7;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border-radius: 25px;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.btn-cardapio-completo:active {
+    background: #CDAB78;
+    color: white;
+}
+
+/* ==========================================================================
+   VERSÃO DESKTOP (COMPUTADOR)
+   ========================================================================== */
+/* ==========================================================================
+   VERSÃO DESKTOP (COMPUTADOR) - AJUSTADO PARA PREENCHER OS LADOS
+   ========================================================================== */
+@media (min-width: 768px) {
+    .oferecemos-container {
+        max-width: 1100px; /* CORREÇÃO: Aumentado para os itens ocuparem mais as laterais da tela */
+    }
+
+    .oferecemos-titulo {
+        font-size: 2.2rem;
+        margin-bottom: 50px;
+    }
+
+    .oferecemos-linha {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 60px; /* CORREÇÃO: Aumentou bastante o espaço horizontal entre os dois cards */
+        margin-bottom: 55px; /* Espaço entre uma fileira e outra */
+    }
+
+    .categoria-card img {
+        max-height: 380px; /* Imagem cresce proporcionalmente para preencher o novo espaço */
+        margin-bottom: 15px;
+    }
+
+    .categoria-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+
+    .categoria-info p {
+        font-size: 1.05rem;
+        line-height: 1.5;
+    }
+
+    .btn-cardapio-completo {
+        font-size: 1rem;
+        padding: 14px 32px;
+    }
+
+    .btn-cardapio-completo:hover {
+        background: #CDAB78;
+        color: white;
+    }
+}
+/* ==========================================================================
+   SEÇÃO INFORMAÇÕES (HORÁRIO + INSTAGRAM) - MOBILE FIRST
+   ========================================================================== */
+
+.info-rodape-secao {
+    background: #FFFAF7; /* Mantém o fundo off-white */
+    padding: 20px 25px 50px 25px;
+    font-family: Arial, sans-serif;
+}
+
+.info-rodape-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column; /* No celular fica um embaixo do outro */
+    gap: 30px;
+}
+
+/* Estilização do Bloco de Horários */
+.bloco-horario {
+    background: #CDAB78; /* O fundo douradinho do seu mockup */
+    color: #FFFAF7; /* Texto claro para dar contraste */
+    padding: 30px 25px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.bloco-horario h3 {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.tabela-horarios {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-size: 1.05rem;
+}
+
+.tabela-horarios td {
+    padding: 6px 0;
+}
+
+.tabela-horarios td:first-child {
+    text-align: left;
     font-weight: bold;
 }
 
-/* ==========================================================================
-   TABLET
-   ========================================================================== */
+.tabela-horarios td:last-child {
+    text-align: right;
+}
 
-@media (min-width:768px){
+/* Estilização do Bloco do Instagram */
+.bloco-instagram {
+    position: relative;
+    min-height: 280px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* TRUQUE PARA ESCURECER A IMAGEM DO INSTAGRAM:
+       Mesma lógica do banner, jogando o degradê escuro por cima da foto de fundo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                      url('../imgs/ambiente/acafe_bancada.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
-    .rede-item:hover{
-        background-color: rgba(255,255,255,.35);
-        transform: scale(1.05);
-    }
+.instagram-conteudo {
+    text-align: center;
+    color: #FFFAF7;
+    width: 100%;
+    max-width: 320px;
+}
 
+.insta-sub {
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.instagram-conteudo p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Botão Entrar do Instagram */
+.btn-instagram {
+    display: inline-block;
+    background: #C7ADE2; /* O roxinho/lilás claro do seu botão entrar no mobile */
+    color: #855C75; /* Texto roxo escuro */
+    padding: 10px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.95rem;
+    border-radius: 25px; /* Botão mais quadradinho conforme o mockup */
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Tirando o azul do clique mobile e adicionando o douradinho */
+.btn-instagram:active {
+    background: #CDAB78;
+    color: white;
 }
 
 /* ==========================================================================
-   DESKTOP
+   VERSÃO DESKTOP (COMPUTADOR)
    ========================================================================== */
-
-@media (min-width:992px){
-
-    .footer-container{
-        display:flex;
-        justify-content:space-between;
-        align-items:flex-start;
-        flex-wrap:wrap;
-        gap:40px;
+@media (min-width: 768px) {
+    .info-rodape-container {
+        flex-direction: row; /* CORREÇÃO: No PC eles ficam lado a lado perfeitamente */
+        gap: 40px; /* Espaço generoso entre os dois grandes blocos */
     }
 
-    .footer-logo,
-    .footer-contato,
-    .footer-endereco{
-        flex:1;
-        margin-bottom:0;
+    .bloco-horario,
+    .bloco-instagram {
+        flex: 1; /* Força os dois blocos a terem exatamente a mesma largura */
+        min-height: 380px; /* Deixa os dois blocos com a mesma altura no PC */
     }
 
-    .footer-logo{
-        text-align:center;
+    .bloco-horario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
     }
 
-    .footer-contato{
-        text-align:left;
+    .bloco-horario h3 {
+        font-size: 1.6rem;
+        margin-bottom: 25px;
     }
 
-    .footer-endereco{
-        text-align:right;
+    .tabela-horarios {
+        font-size: 1.15rem;
+        max-width: 320px;
     }
 
-    .redes-sociais{
-        align-items:flex-start;
+    .insta-sub {
+        font-size: 1.6rem;
     }
 
-    .footer-creditos{
-        width:100%;
-        margin-top:35px;
+    .instagram-conteudo p {
+        font-size: 1.1rem;
     }
 
+    /* Efeito de Hover no PC (Muda para o Douradinho no computador) */
+    .btn-instagram:hover {
+        background: #CDAB78;
+        color: white;
+    }
 }
