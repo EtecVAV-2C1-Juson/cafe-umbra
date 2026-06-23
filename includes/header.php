@@ -19,12 +19,12 @@ if (session_status() === PHP_SESSION_NONE) {
         <title>Umbra Café</title>
     <?php endif; ?>
 
-    <link rel="icon" type="image/png" href="assets/imgs/logo/icone.png">
+    <link rel="icon" type="image/png" href="/cafe-umbra/assets/imgs/logo/icone.png">
 
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="/cafe-umbra/assets/css/style.css">
 
 </head>
 
@@ -34,8 +34,8 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <div class="header-container">
 
-        <a href="index.php" class="header-logo">
-            <img src="assets/imgs/logo/umbra.png" alt="Umbra Café">
+        <a href="/cafe-umbra/index.php" class="header-logo">
+            <img src="/cafe-umbra/assets/imgs/logo/umbra.png" alt="Umbra Café">
         </a>
 
        <button type="button" class="menu-btn" id="menuBtn" aria-label="Abrir menu">
@@ -45,9 +45,9 @@ if (session_status() === PHP_SESSION_NONE) {
         <nav class="nav-menu" id="navMenu">
 
             <div class="nav-links">
-                <a href="index.php">Início</a>
-                <a href="pedido.php">Pedido</a>
-                <a href="sobre.php">Sobre nós</a>
+                <a href="/cafe-umbra/index.php">Início</a>
+                <a href="/cafe-umbra/pedido.php">Pedido</a>
+                <a href="/cafe-umbra/sobre.php">Sobre nós</a>
             </div>
 
             <div class="nav-usuario">

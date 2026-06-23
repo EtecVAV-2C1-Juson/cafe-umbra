@@ -31,7 +31,7 @@
             <div class="footer-col footer-endereco">
                 <h3 class="footer-titulo">Localização</h3>
                 <p class="footer-endereco-texto">
-                    Endereço fictício, 123 - Centro
+                    Rua Tabapuã, 932 - Itaim Bibi, São Paulo - SP
                 </p>
             </div>
 

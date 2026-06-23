@@ -170,7 +170,7 @@ function atualizarInterfaceCarrinho() {
         listaGaveta.innerHTML = '<p class="carrinho-vazio-txt">Nenhum item selecionado ainda.</p>';
         contadorBadge.innerText = '0';
         valorTotalTexto.innerText = 'R$ 0,00';
-        rodapeGaveta.style.display = 'none'; // Esconde o botão se o carrinho estiver vazio
+        rodapeGaveta.style.display = 'none'; 
         return;
     }
 
@@ -200,7 +200,8 @@ function atualizarInterfaceCarrinho() {
 
     contadorBadge.innerText = totalItensContador;
     valorTotalTexto.innerText = `R$ ${totalGeral.toFixed(2).replace('.', ',')}`;
-    rodapeGaveta.style.display = 'block'; // Mostra o botão se houver itens
+    rodapeGaveta.style.display = 'block'; 
+    localStorage.setItem("carrinho_umbra", JSON.stringify(carrinho));
 }
 </script>
 

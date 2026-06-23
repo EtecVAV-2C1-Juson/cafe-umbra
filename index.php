@@ -1,5 +1,5 @@
 <?php
-// Define o título dinâmico da página que o seu header já aceita
+
 $tituloPagina = "Início"; 
 include "includes/header.php";
 ?>
@@ -101,7 +101,7 @@ include "includes/header.php";
                 <div class="instagram-conteudo">
                     <span class="insta-sub">Confira nosso Instagram</span>
                     <p>Siga a nossa página para ficar por dentro de todos os nossos lançamentos, promoções semanais e bastidores artesanais.</p>
-                    <a href="https://instagram.com/cafeumbra_" target="_blank" class="btn-instagram">Entrar</a>
+                    <a href="https:
                 </div>
             </div>
 
