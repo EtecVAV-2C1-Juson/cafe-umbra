@@ -129,7 +129,7 @@ body {
     color: white;
 }
 
-/* Menu Usuário Logado (Mobile) */
+/* Menu Usuário Logado */
 .usuario-menu {
     position: relative;
 }
@@ -138,7 +138,7 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     gap: 12px;
     padding: 16px 35px;
     background: none;
@@ -149,15 +149,10 @@ body {
     font-weight: 600;
 }
 
-.usuario-btn span {
-    order: 1;
-}
-.usuario-btn i:first-child {
-    order: 2;
-}
-.usuario-btn .seta-dropdown {
-    order: 0;
-    margin-right: auto; /* Joga a seta para a esquerda, mantendo o nome na direita */
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacinho entre o boneco e o texto "Olá, Júlia" */
 }
 
 .usuario-btn:hover {
@@ -943,4 +938,536 @@ body {
         background: #CDAB78;
         color: white;
     }
+}
+/* ==========================================================================
+   PÁGINA DE PEDIDOS - CONFIGURAÇÃO VISUAL FINAL (MOCKUP)
+   ========================================================================== */
+
+.pedido-principal {
+    background: #FFFAF7;
+    padding-bottom: 100px; /* Espaço para a barra fixa não cobrir o conteúdo */
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* --- CARROSSEL DE CATEGORIAS DO TOPO --- */
+.categorias-topo-container {
+    position: relative;
+    background: #FFFAF7;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(133, 92, 117, 0.1);
+}
+
+.categorias-topo-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 50px;
+    scrollbar-width: none;
+}
+
+.categorias-topo-scroll::-webkit-scrollbar { 
+    display: none; 
+}
+
+.categoria-topo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 75px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.circulo-img-cat {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #EFE8E4;
+    margin-bottom: 8px;
+    border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.circulo-img-cat img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.categoria-topo-item span {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #555555;
+}
+
+/* Estado Ativo do Topo (Destaque Marrom/Bege) */
+.categoria-topo-item.cat-ativa .circulo-img-cat {
+    border-color: #CDAB78;
+    box-shadow: 0 0 8px rgba(205, 171, 120, 0.5);
+}
+
+.categoria-topo-item.cat-ativa span {
+    color: #855C75;
+}
+
+/* Setas do Topo */
+.seta-cat {
+    position: absolute;
+    top: 40px;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: #855C75;
+    cursor: pointer;
+    z-index: 5;
+    font-weight: bold;
+}
+.seta-cat-esq { left: 15px; }
+.seta-cat-dir { right: 15px; }
+
+
+/* --- LISTA DE PRODUTOS (CARDS) --- */
+.produtos-pedido-lista {
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card-item-pedido {
+    background: #FFFFFF;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    align-items: center; /* Alinha tudo verticalmente pelo centro */
+    gap: 16px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+}
+
+.card-pedido-foto {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-pedido-foto img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.card-pedido-detalhes {
+    flex: 1;
+    text-align: left;
+}
+
+.card-pedido-detalhes h3 {
+    font-size: 1.15rem;
+    color: #000000;
+    margin: 0 0 4px 0;
+    font-weight: bold;
+}
+
+.card-pedido-preco {
+    font-size: 1rem;
+    color: #855C75;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.card-pedido-desc {
+    font-size: 0.8rem;
+    color: #777777;
+    line-height: 1.4;
+    margin: 0 0 6px 0;
+}
+
+.card-pedido-medida {
+    font-size: 0.75rem;
+    color: #aaaaaa;
+    display: block;
+}
+
+/* Botão de Adicionar (+) Grosso do Mockup */
+.btn-adicionar-item {
+    background: transparent;
+    border: none;
+    font-size: 2.4rem;
+    color: #000000;
+    font-weight: 300;
+    cursor: pointer;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+
+/* --- BARRA FIXA INFERIOR (AGORA TOTALMENTE CLICÁVEL) --- */
+.barra-fixa-pedido {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    background: #CDAB78;
+    
+    /* Resets necessários por se tornar um botão */
+    border: none;
+    font-family: Arial, sans-serif;
+    cursor: pointer;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    box-sizing: border-box;
+    z-index: 99;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.2s ease;
+}
+
+/* Efeito sutil de clique na barra toda */
+.barra-fixa-pedido:active {
+    background: #b59362;
+}
+
+.btn-visualizar-gaveta {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.total-pedido-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #FFFFFF;
+}
+
+.txt-total {
+    font-size: 1rem;
+}
+
+.txt-total strong {
+    font-size: 1.15rem;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.icone-carrinho-pedido {
+    position: relative;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.badge-contador {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #855C75;
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+/* --- GAVETA DO CARRINHO --- */
+.gaveta-carrinho {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    max-height: 75vh;
+    background: #FFFFFF;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    z-index: 100;
+    transition: bottom 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+}
+
+.gaveta-carrinho.aberta {
+    bottom: 0;
+}
+
+.gaveta-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gaveta-header h3 { 
+    color: #855C75; 
+    font-weight: bold; 
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.btn-fechar-gaveta {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #888888;
+}
+
+.gaveta-corpo {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.carrinho-vazio-txt {
+    color: #888888;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.gaveta-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 98;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.gaveta-overlay.ativo {
+    opacity: 1;
+    pointer-events: auto;
+}
+/* --- BOTÃO DE FINALIZAR DENTRO DA GAVETA --- */
+.btn-finalizar-compra {
+    display: block;
+    width: 100%;
+    background: #855C75; /* Roxo/vinho da marca */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 0;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.1s ease;
+    box-sizing: border-box;
+}
+
+.btn-finalizar-compra:active {
+    background: #6a495d;
+    transform: scale(0.98);
+}
+
+/* Estilo alternativo caso precise fazer login */
+.btn-finalizar-compra.login-alerta {
+    background: #CDAB78; /* Bege/dourado para chamar atenção de aviso */
+    color: #FFFFFF;
+}
+
+.btn-finalizar-compra.login-alerta:active {
+    background: #b59362;
+}
+@media (min-width: 768px) {
+    /* Centraliza o carrossel de bolinhas no PC */
+    .categorias-topo-scroll {
+        justify-content: center;
+        padding: 0;
+    }
+
+    /* Esconde as setas de categoria no PC já que tudo fica centralizado e visível */
+    .seta-cat {
+        display: none;
+    }
+
+    /* Transforma a lista de produtos em 2 colunas largas e imponentes */
+    .produtos-pedido-lista {
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+
+    /* Aumenta o tamanho interno do card e dos textos */
+    .card-item-pedido {
+        padding: 22px;
+        border-radius: 16px;
+    }
+
+    .card-pedido-foto {
+        width: 110px;
+        height: 110px;
+    }
+
+    .card-pedido-detalhes h3 {
+        font-size: 1.3rem;
+    }
+
+    .card-pedido-preco {
+        font-size: 1.1rem;
+    }
+
+    .card-pedido-desc {
+        font-size: 0.9rem;
+    }
+}
+/* ==========================================================================
+   PÁGINA DE LOGIN - PADRÃO UMBRA CAFÉ
+   ========================================================================== */
+
+.login-principal {
+    background: #FFFAF7;
+    min-height: calc(100vh - 140px); /* Desconta a altura estimada do header/footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.login-card {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 420px;
+    padding: 35px 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-card h2 {
+    color: #855C75;
+    font-size: 1.6rem;
+    margin: 0 0 8px 0;
+    font-weight: bold;
+}
+
+.login-subtitulo {
+    color: #777777;
+    font-size: 0.9rem;
+    margin: 0 0 25px 0;
+}
+
+/* Alerta de erro caso erre a senha */
+.login-alerta-erro {
+    background: #FDF2F2;
+    color: #EC5959;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: left;
+    border: 1px solid #FAD7D7;
+}
+
+/* Estrutura do Formulário */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    text-align: left;
+}
+
+.form-grupo label {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-grupo input {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background: #FAFAFA;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.form-grupo input:focus {
+    border-color: #CDAB78;
+    background: #FFFFFF;
+    outline: none;
+}
+
+/* Botão de Enviar */
+.btn-enviar-login {
+    width: 100%;
+    height: 48px;
+    background: #855C75;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-enviar-login:active {
+    background: #6a495d;
+    transform: scale(0.98);
+}
+
+/* Links do rodapé da caixinha */
+.login-footer {
+    margin-top: 25px;
+    border-top: 1px solid #F0F0F0;
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #666666;
+}
+
+.login-footer a {
+    color: #CDAB78;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
 }

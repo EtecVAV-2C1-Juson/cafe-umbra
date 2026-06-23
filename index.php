@@ -13,7 +13,7 @@ include "includes/header.php";
             <p>O seu momento, com o melhor café. Venha conhecer nosso espaço aconchegante no centro da cidade.</p>
             
             <div class="hero-botoes">
-                <a href="cardapio.php" class="btn-home-secundario">Cardápio</a>
+                <a href="sobre.php" class="btn-home-secundario">Saiba mais</a>
                 <a href="pedido.php" class="btn-home-principal">Fazer o Pedido</a>
             </div>
         </div>
@@ -76,7 +76,7 @@ include "includes/header.php";
             </div>
 
             <div class="oferecemos-botoes">
-                <a href="cardapio.php" class="btn-cardapio-completo">Confira o cardápio completo</a>
+                <a href="pedido.php" class="btn-cardapio-completo">Faça seu pedido</a>
             </div>
 
         </div>

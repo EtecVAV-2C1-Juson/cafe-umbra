@@ -1,4 +1,5 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/cafe-umbra/config/conexao.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -33,42 +34,20 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <div class="header-container">
 
-        <!-- Logo -->
         <a href="index.php" class="header-logo">
-
-            <img
-                src="assets/imgs/logo/umbra.png"
-                alt="Umbra Café">
-
+            <img src="assets/imgs/logo/umbra.png" alt="Umbra Café">
         </a>
 
-        <!-- Menu Mobile -->
-        <button
-            type="button"
-            class="menu-btn"
-            id="menuBtn"
-            aria-label="Abrir menu">
-            <i
-                class="fa-solid fa-bars"
-                id="iconeMenu">
-            </i></button>
+       <button type="button" class="menu-btn" id="menuBtn" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars" id="iconeMenu"></i>
+        </button>
 
-        <!-- Navegação -->
-
-        <nav
-            class="nav-menu"
-            id="navMenu">
+        <nav class="nav-menu" id="navMenu">
 
             <div class="nav-links">
-
                 <a href="index.php">Início</a>
-
-                <a href="cardapio.php">Cardápio</a>
-
                 <a href="pedido.php">Pedido</a>
-
                 <a href="sobre.php">Sobre nós</a>
-
             </div>
 
             <div class="nav-usuario">
@@ -77,61 +56,35 @@ if (session_status() === PHP_SESSION_NONE) {
 
                     <div class="usuario-menu">
 
-                        <button
-                            type="button"
-                            class="usuario-btn"
-                            id="usuarioBtn">
+                        <button type="button" class="usuario-btn" id="usuarioBtn">
+                            
+                            <div class="usuario-info" style="display: flex; align-items: center; gap: 8px;">
+                                <i class="fa-solid fa-circle-user"></i>
+                                <span>Olá, <?= htmlspecialchars($_SESSION["nome_cliente"]); ?></span>
+                            </div>
 
-                            <i class="fa-solid fa-circle-user"></i>
-
-                            <span>
-
-                                Olá,
-                                <?= htmlspecialchars($_SESSION["nome_cliente"]); ?>
-
-                            </span>
-
-                            <i
-                                class="fa-solid fa-chevron-down seta-dropdown"
-                                id="setaDropdown">
-                            </i>
+                            <i class="fa-solid fa-chevron-down seta-dropdown" id="setaDropdown"></i>
 
                         </button>
 
-                        <div
-                            class="usuario-dropdown"
-                            id="usuarioDropdown">
-
+                        <div class="usuario-dropdown" id="usuarioDropdown">
                             <a href="meus_pedidos.php">
-
                                 <i class="fa-solid fa-receipt"></i>
-
                                 Meus pedidos
-
                             </a>
-
                             <a href="logout.php">
-
                                 <i class="fa-solid fa-right-from-bracket"></i>
-
                                 Sair
-
                             </a>
-
                         </div>
 
                     </div>
 
                 <?php else: ?>
 
-                    <a
-                        href="login.php"
-                        class="btn-login">
-
+                    <a href="login.php" class="btn-login">
                         <i class="fa-solid fa-user"></i>
-
                         Entrar
-
                     </a>
 
                 <?php endif; ?>
@@ -139,7 +92,6 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
 
         </nav>
-
     </div>
 
 </header>
