@@ -68,7 +68,7 @@ $carrosselItens = [
             <div class="info-grid-contato">
                 <div>
                     <h4><i class="fa-solid fa-location-dot"></i> Onde nos encontrar</h4>
-                    <p>Rua, Bairro, Cidade, Estado.</p>
+                    <p>Rua Tabapuã, 932 - Itaim Bibi, São Paulo - SP</p>
                 </div>
                 <div>
                     <h4><i class="fa-solid fa-envelope"></i> E-mail</h4>

@@ -1,5 +1,4 @@
 <?php
-
 $tituloPagina = "Início"; 
 include "includes/header.php";
 ?>
@@ -81,6 +80,7 @@ include "includes/header.php";
 
         </div>
     </section>
+
     <section class="info-rodape-secao">
         <div class="info-rodape-container">
             
@@ -101,13 +101,11 @@ include "includes/header.php";
                 <div class="instagram-conteudo">
                     <span class="insta-sub">Confira nosso Instagram</span>
                     <p>Siga a nossa página para ficar por dentro de todos os nossos lançamentos, promoções semanais e bastidores artesanais.</p>
-                    <a href="https:
+                    <a href="https://www.instagram.com/cafeumbra_" target="_blank" class="btn-instagram">Acessar Instagram</a>
                 </div>
             </div>
 
-        </div>
-    </section>
-</main>
+        </div> </section> </main>
 
 <?php 
 include "includes/footer.php";
